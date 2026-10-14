@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banc4 - Mi Panel</title>
+    
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Puedes crear un dashboard.css si prefieres separar estilos, o seguir usando main.css -->
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header-principal">
+        <div class="logo">
+            <span class="logo-circulo"><a href="dashboard.html">Banc4</a></span>
+        </div>
+        
+        <nav class="nav-enlaces">
+            <ul>
+                <li><a href="#" id="nav-cuentas" class="active">Mis Cuentas</a></li>
+                <li><a href="#" id="nav-tarjetas">Tarjetas</a></li>
+                <li><a href="#" id="nav-transferencias">Transferir</a></li>
+                <li><a href="#" id="nav-perfil">Mi Perfil</a></li>
+                <li><a href="#" id="nav-admin">Usuarios (CRUD)</a></li>
+                <li><a href="#" id="nav-historial">Historial</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-botones">
+            <button id="btn-cerrar-sesion" class="btn-outline">CERRAR SESIÓN</button>
+        </div>
+    </header>
+
+    <main class="contenedor-dashboard" id="vista-dashboard">
+        
+        <!-- ==============================================
+                VISTA 1: MIS CUENTAS (Visible por defecto)
+        =============================================== -->
+        <div id="vista-cuentas" class="vista-activa">
+            <section class="seccion-bienvenida">
+                <h2 id="saludo-usuario">Cargando...</h2>
+                <p>Aquí tienes el resumen de tus productos financieros.</p>
+            </section>
+
+            <section class="dashboard-grid">
+                <div class="tarjeta-panel tarjeta-cuenta">
+                    <h3 class="titulo-tarjeta">Cuenta de Ahorros</h3>
+                    <h1 id="saldo-pantalla" class="saldo-destacado">Cargando saldo...</h1>
+                    <div class="botones-accion">
+                        <button id="btn-consignar" class="btn-principal">Consignar</button>
+                        <button id="btn-retirar" class="btn-secundario">Retirar</button>
+                    </div>
+                </div>
+                <div class="tarjeta-panel tarjeta-historial">
+                    <h3 class="titulo-tarjeta">Movimientos Recientes</h3>
+                    <ul id="lista-movimientos" class="lista-movimientos">
+                        <li class="movimiento-vacio">Cargando movimientos...</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="seccion-productos">
+                <h2 class="titulo-seccion">Productos recomendados para ti</h2>
+                <div class="productos-grid">
+                    <div class="tarjeta-producto">
+                        <h4>Tarjeta de Crédito</h4>
+                        <p>Aprobación inmediata con cupo de hasta $5.000.000. Sin cuota de manejo el primer año.</p>
+                        <button id="btn-solicitar-tc" class="btn-outline btn-pequeno">Solicitar</button>
+                    </div>
+                    <div class="tarjeta-producto">
+                        <h4>CDT Virtual</h4>
+                        <p>Invierte de forma segura con las mejores tasas de interés del mercado desde $500.000.</p>
+                        <button class="btn-outline btn-pequeno">Simular</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<!-- ==============================================
+            VISTA 2: TARJETAS (Oculta por defecto)
+        =============================================== -->
+        <div id="vista-tarjetas" class="vista-oculta">
+            <h2 class="titulo-seccion">Mi Tarjeta de Crédito</h2>
+            
+            <div id="contenedor-mi-tarjeta" class="panel-tarjeta-credito">
+                
+                <!-- ESTE ES EL DIV QUE FALTABA -->
+                <div id="mensaje-sin-tarjeta">
+                    <p>Aún no tienes una Tarjeta de Crédito. Solicítala en la sección de Mis Cuentas.</p>
+                </div>
+                
+                <div id="datos-mi-tarjeta" class="vista-oculta" style="width: 100%; display: contents;">
+                    <!-- Aquí se inyecta la tarjeta desde JavaScript -->
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- ==============================================
+            VISTA: TRANSFERENCIAS (Oculta por defecto)
+        =============================================== -->
+        <div id="vista-transferencias" class="vista-oculta">
+            <h2 class="titulo-seccion">Transferir Dinero</h2>
+            
+            <div class="tarjeta-panel" style="max-width: 500px; margin: 0 auto;">
+                <p style="margin-bottom: 20px; color: var(--texto-claro);">Envía dinero a otras cuentas de Banc4 de forma instantánea.</p>
+                
+                <div class="grupo-input">
+                    <label>Número de Cuenta Destino (Ej: AH-12345)</label>
+                    <input type="text" id="input-cuenta-destino" placeholder="Ingresa la cuenta destino">
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Monto a transferir ($)</label>
+                    <input type="number" id="input-monto-transferencia" placeholder="0.00">
+                </div>
+                
+                <button id="btn-ejecutar-transferencia" class="btn-principal" style="width: 100%; margin-top: 10px;">Enviar Dinero</button>
+            </div>
+        </div>
+
+<!-- ==============================================
+            VISTA: PERFIL Y SEGURIDAD (Oculta por defecto)
+        =============================================== -->
+        <div id="vista-perfil" class="vista-oculta">
+            <h2 class="titulo-seccion">Mi Perfil y Seguridad</h2>
+            
+            <div class="dashboard-grid perfil-grid">
+                
+                <!-- Tarjeta 1: Tarjeta de Presentación / Avatar -->
+                <div class="tarjeta-panel tarjeta-perfil-info">
+                    <div class="perfil-avatar-container">
+                        <!-- Generador automático de avatar moderno -->
+                        <img id="perfil-img" src="" alt="Avatar" class="perfil-avatar">
+                        <div class="perfil-badge">VIP</div>
+                    </div>
+                    <h3 id="perfil-nombre-display" style="margin-top: 15px; color: var(--teal-700);">Cargando...</h3>
+                    <p id="perfil-usuario-display" style="color: var(--texto-claro); font-size: 0.9rem;">@usuario</p>
+                    
+                    <div class="perfil-datos-lista">
+                        <div class="perfil-dato-item">
+                            <strong>N° de Cuenta:</strong> <span id="perfil-cuenta-display" style="font-family: monospace; font-weight: bold; color: var(--teal-500);">-</span>
+                        </div>
+                        <div class="perfil-dato-item">
+                            <strong>Celular:</strong> <span id="perfil-celular-display">-</span>
+                        </div>
+                        <div class="perfil-dato-item">
+                            <strong>Correo:</strong> <span id="perfil-correo-display">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Formularios de Edición y Seguridad -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="tarjeta-panel">
+                        <h3 style="margin-bottom: 15px; color: var(--teal-700);">Editar Información Personal</h3>
+                        <div class="grupo-input">
+                            <label>Nombre Completo</label>
+                            <input type="text" id="input-perfil-nombre">
+                        </div>
+                        <div class="grupo-input">
+                            <label>Número de Celular</label>
+                            <input type="text" id="input-perfil-celular">
+                        </div>
+                        <div class="grupo-input">
+                            <label>Correo Electrónico</label>
+                            <input type="email" id="input-perfil-correo">
+                        </div>
+                        <button id="btn-actualizar-perfil" class="btn-principal" style="margin-top: 10px; width: 100%;">Guardar Cambios</button>
+                    </div>
+
+                    <div class="tarjeta-panel">
+                        <h3 style="margin-bottom: 15px; color: var(--teal-700);">Seguridad (Contraseña)</h3>
+                        <div class="grupo-input">
+                            <label>Contraseña Actual</label>
+                            <input type="password" id="input-pass-actual">
+                        </div>
+                        <div class="grupo-input">
+                            <label>Nueva Contraseña</label>
+                            <input type="password" id="input-pass-nueva">
+                        </div>
+                        <div class="grupo-input">
+                            <label>Confirmar Nueva Contraseña</label>
+                            <input type="password" id="input-pass-confirmar">
+                        </div>
+                        <button id="btn-cambiar-pass" class="btn-secundario" style="margin-top: 10px; width: 100%;">Actualizar Contraseña</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==============================================
+            VISTA 3: HISTORIAL COMPLETO (Oculta por defecto)
+        =============================================== -->
+        <div id="vista-historial" class="vista-oculta">
+            <h2 class="titulo-seccion">Historial Completo</h2>
+            <div class="tarjeta-panel">
+                <p>Aquí construiremos una tabla detallada para ver meses anteriores.</p>
+            </div>
+        </div>
+
+        <!-- ==============================================
+             VISTA: ADMINISTRACIÓN DE USUARIOS (CRUD)
+        =============================================== -->
+        <div id="vista-admin" class="vista-oculta">
+            <h2 class="titulo-seccion">Gestión de Clientes (Administrador)</h2>
+            
+            <div class="tarjeta-panel" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--teal-700);">Registrar Nuevo Cliente</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <input type="text" id="admin-reg-id" placeholder="Identificación" class="admin-input">
+                    <input type="text" id="admin-reg-nombre" placeholder="Nombre completo" class="admin-input">
+                    <input type="text" id="admin-reg-celular" placeholder="Celular" class="admin-input">
+                    <input type="text" id="admin-reg-user" placeholder="Usuario único" class="admin-input">
+                    <input type="password" id="admin-reg-pass" placeholder="Contraseña" class="admin-input">
+                </div>
+                <button id="btn-admin-crear" class="btn-principal" style="margin-top: 20px;">Crear Usuario</button>
+            </div>
+
+            <div class="tarjeta-panel">
+                <h3 style="margin-bottom: 15px; color: var(--teal-700);">Lista de Clientes Registrados</h3>
+                <div style="overflow-x: auto;">
+                    <table class="tabla-admin">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Usuario</th>
+                                <th>Celular</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-clientes-body">
+                            <!-- Inyectado dinámicamente por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- SCRIPTS EN ORDEN ESTRICTO -->
+    <script src="js/models/Transaccion.js"></script>
+    <script src="js/models/TarjetaCredito.js"></script>
+    <script src="js/models/Cuenta.js"></script>
+    <script src="js/models/Cliente.js"></script>
+    <script src="js/controller/dashboard.js"></script>
+
+</body>
+</html>

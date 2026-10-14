@@ -1,0 +1,154 @@
+/* =========================================
+   VISTAS DE AUTENTICACIÓN (Split Screen)
+========================================= */
+.contenedor-hero {
+    padding: 0; /* Quitamos el padding global para que ocupe todo */
+    min-height: calc(100vh - 80px);
+}
+
+/* Lado izquierdo (Creativo/Marca) */
+.columna-izquierda {
+    background: linear-gradient(135deg, var(--teal-700), var(--teal-500));
+    color: white;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.columna-izquierda::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--teal-300);
+    border-radius: 50%;
+    bottom: -100px;
+    left: -100px;
+    opacity: 0.2;
+}
+
+.columna-izquierda h2 {
+    color: white;
+    font-size: 3rem;
+    background: none; /* Quitamos el texto transparente del main */
+    -webkit-text-fill-color: white;
+    margin-bottom: 1rem;
+    z-index: 1;
+}
+
+.columna-izquierda p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+/* Lado derecho (Formulario) */
+.columna-derecha {
+    background: var(--bg-app);
+}
+
+.contenedor-form {
+    background: var(--superficie);
+    padding: 3rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-suave);
+    width: 100%;
+    max-width: 450px;
+}
+
+.contenedor-form h2 {
+    color: var(--teal-700);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Inputs Modernos (Estilo Flotante / Minimalista) */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.grupo-input label {
+    font-size: 0.85rem;
+    color: var(--texto-claro);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.grupo-input input {
+    background: var(--bg-app);
+    border: 2px solid transparent;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--texto-oscuro);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.grupo-input input:focus {
+    background: var(--superficie);
+    border-color: var(--teal-300);
+    box-shadow: 0 0 0 4px var(--teal-100);
+}
+
+.form-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.enlace-cambio {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--texto-claro);
+}
+
+.enlace-cambio a {
+    color: var(--teal-500);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.enlace-cambio a:hover {
+    color: var(--teal-700);
+    text-decoration: underline;
+}
+
+.alerta-oculta {
+    display: none;
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (Vistas de Autenticación)
+========================================= */
+@media (max-width: 900px) {
+    .contenedor-hero { flex-direction: column; }
+    
+    /* El bloque izquierdo se convierte en un banner superior */
+    .columna-izquierda { 
+        padding: 2rem 1.5rem; 
+        border-radius: 0 0 30px 30px; 
+        text-align: center;
+    }
+    .columna-izquierda h2 { font-size: 2rem; }
+    
+    /* El formulario ocupa todo el ancho */
+    .columna-derecha { padding: 2rem 1rem; }
+    .contenedor-form { max-width: 100%; padding: 2rem 1.5rem; }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banc4 - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <!-- MISMA BARRA DE NAVEGACIÓN -->
+    <header class="header-principal">
+        <div class="logo">
+            <span class="logo-circulo"><a href="index.html">Banc4</a></span>
+        </div>
+        
+        <nav class="nav-enlaces">
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-botones">
+            <button onclick="location.href='login.html'" class="btn-outline active">INGRESAR</button>
+            <button onclick="location.href='registro.html'" class="btn-outline">REGISTRARSE</button>
+        </div>
+    </header>
+
+    <!-- VISTA PRINCIPAL DIVIDIDA EN DOS COLUMNAS -->
+    <main class="contenedor-hero">
+        
+        <!-- COLUMNA IZQUIERDA: Mensaje o texto de bienvenida -->
+        <section class="columna-izquierda">
+            <div class="texto-publicitario">
+                <h2>¡Qué bueno verte de nuevo!</h2>
+                <p>Accede a tu banca digital de forma segura. Consulta tus saldos, realiza transferencias y administra tus productos en segundos.</p>
+            </div>
+        </section>
+
+        <!-- COLUMNA DERECHA: Formulario de Login -->
+        <section class="columna-derecha">
+            <div class="contenedor-form">
+                <h2>Iniciar Sesión</h2>
+                
+                <!-- Contador de intentos fallidos exigido por el proyecto -->
+                <p id="mensaje-intentos" class="alerta-oculta">Intentos restantes: 3</p> 
+                
+                <form id="form-login">
+                    <div class="grupo-input">
+                        <label for="login-usuario">Usuario</label>
+                        <input type="text" id="login-usuario" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-principal form-btn">Ingresar a mi cuenta</button>
+                </form>
+                
+                <p class="enlace-cambio">¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/models/Cliente.js"></script>
+    <script src="js\controller\login.js"></script>
+</body>
+</html>

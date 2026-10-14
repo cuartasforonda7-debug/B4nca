@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banc4 - Tu Banco Digital</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header-principal">
+        <div class="logo">
+            <span class="logo-circulo"><a href="#inicio">Banc4</a></span>
+        </div>
+        
+        <!-- NAVEGACIÓN CON ENLACES A LAS SECCIONES -->
+        <nav class="nav-enlaces">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nuestra Historia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-botones">
+            <button onclick="location.href='login.html'" class="btn-outline">INICIAR SESIÓN</button>
+        </div>
+    </header>
+
+    <!-- 1. SECCIÓN INICIO (La tarjeta flotante que ya armamos) -->
+    <main id="inicio" class="contenedor-hero">
+        <section class="columna-izquierda">
+            <h2>El banco diseñado para la nueva generación.</h2>
+            <p>Sin filas, sin papeleos. Controla tu dinero y tus metas desde un solo lugar con nuestra arquitectura 100% digital pensada para ti.</p>
+            <div class="botones-accion">
+                <button onclick="location.href='registro.html'" class="btn-principal">ABRIR CUENTA</button>
+                <button onclick="location.href='login.html'" class="btn-secundario">YA SOY CLIENTE</button>
+            </div>
+        </section>
+        
+        <section class="columna-derecha">
+            <div class="contenedor-tarjeta-animada">
+                <div class="tarjeta-banc4-virtual">
+                    <div class="tarjeta-top">
+                        <div class="tarjeta-chip"></div>
+                        <div class="tarjeta-logo-mini">Banc4</div>
+                    </div>
+                    <div class="tarjeta-numero">**** **** **** 4029</div>
+                    <div class="tarjeta-bottom">
+                        <div class="tarjeta-titular">CLIENTE PREFERENCIAL</div>
+                        <div class="tarjeta-vencimiento">12/29</div>
+                    </div>
+                    <div class="circulo-decorativo c1"></div>
+                    <div class="circulo-decorativo c2"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 2. SECCIÓN NOSOTROS (Diseño oscuro para contrastar) -->
+    <section id="nosotros" class="seccion-nosotros">
+        <div class="contenido-nosotros">
+            <h2>No somos un banco tradicional.</h2>
+            <p>Banc4 no nació en una junta directiva de traje y corbata. Nació de la pasión por la tecnología, la lógica limpia y la necesidad de crear un ecosistema financiero que entienda a los jóvenes, a los desarrolladores y a los creadores del futuro.</p>
+            <p>Creemos en el potencial de las ideas y en empoderar a la nueva generación con herramientas ágiles. Más que un banco, somos tu partner tecnológico en el camino hacia tus objetivos.</p>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN CONTACTO (Diseño Glassmorfismo) -->
+    <section id="contacto" class="seccion-contacto">
+        <div class="tarjeta-contacto">
+            <h2>¿Necesitas ayuda?</h2>
+            <p>Nuestro equipo de soporte técnico y financiero está listo para ti 24/7.</p>
+            
+            <div class="info-contacto">
+                <div class="item-contacto">
+                    <strong>Email de Soporte:</strong>
+                    <span>soporte@banc4.tech</span>
+                </div>
+                <div class="item-contacto">
+                    <strong>Línea Nacional:</strong>
+                    <span>01 8000 BANC4 (22624)</span>
+                </div>
+                <div class="item-contacto">
+                    <strong>Sede Principal:</strong>
+                    <span>Distrito de Innovación, Medellín - Colombia</span>
+                </div>
+            </div>
+            
+            <button class="btn-principal" style="margin-top: 2rem; width: 100%;">Enviar un Mensaje</button>
+        </div>
+    </section>
+
+</body>
+</html>

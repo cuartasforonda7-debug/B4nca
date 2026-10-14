@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banc4 - Registro</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <!-- MISMA BARRA DE NAVEGACIÓN -->
+    <header class="header-principal">
+        <div class="logo">
+            <span class="logo-circulo"><a href="index.html">Banc4</a></span>
+        </div>
+        
+        <nav class="nav-enlaces">
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-botones">
+            <button onclick="location.href='login.html'" class="btn-outline">INGRESAR</button>
+            <button onclick="location.href='registro.html'" class="btn-outline active">REGISTRARSE</button>
+        </div>
+    </header>
+
+    <!-- VISTA PRINCIPAL DIVIDIDA EN DOS COLUMNAS -->
+    <main class="contenedor-hero">
+        
+        <!-- COLUMNA IZQUIERDA: Mensaje institucional -->
+        <section class="columna-izquierda">
+            <div class="texto-publicitario">
+                <h2>Empieza tu futuro financiero hoy</h2>
+                <p>Crea tu cuenta en Banc4 en pocos minutos. Disfruta de un sistema moderno, seguro y diseñado para darte el control total de tus ahorros y créditos.</p>
+            </div>
+        </section>
+
+        <!-- COLUMNA DERECHA: Formulario de Registro con los campos obligatorios -->
+        <section class="columna-derecha">
+            <div class="contenedor-form">
+                <h2>Crear una Cuenta</h2>
+                
+                <form id="form-registro">
+                    <div class="grupo-input">
+                        <label for="reg-identificacion">Número de identificación</label>
+                        <input type="text" id="reg-identificacion" placeholder="Cédula o Pasaporte" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-nombre">Nombre completo</label>
+                        <input type="text" id="reg-nombre" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-celular">Número de celular</label>
+                        <input type="tel" id="reg-celular" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-usuario">Nombre de usuario</label>
+                        <input type="text" id="reg-usuario" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-password">Contraseña</label>
+                        <input type="password" id="reg-password" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-confirmar">Confirmar Contraseña</label>
+                        <input type="password" id="reg-confirmar" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-principal form-btn">Registrarse</button>
+                </form>
+                
+                <p class="enlace-cambio">¿Ya eres cliente? <a href="login.html">Inicia sesión</a></p>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/models/Cliente.js"></script>
+    <script src="js/controller/auth.js"></script>
+</body>
+</html>

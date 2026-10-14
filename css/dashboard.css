@@ -1,0 +1,113 @@
+/* =========================================
+    ESTILOS DEL DASHBOARD
+========================================= */
+
+body {
+    background-color: #94d4f7;
+}
+
+.contenedor-dashboard {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.seccion-bienvenida {
+    margin-bottom: 30px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.tarjeta-panel {
+    background-color: #0daeff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.saldo-destacado {
+    font-size: 3rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Grid inferior: 4 Tarjetas de productos en fila */
+.seccion-productos {
+    border-top: 1px solid #eaeaea;
+    padding-top: 40px;
+}
+
+.titulo-seccion {
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
+    gap: 20px;
+}
+
+.tarjeta-producto {
+    background-color: #0daeff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.tarjeta-producto h4 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.tarjeta-producto p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Estilos de la lista de movimientos */
+.lista-movimientos {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.item-movimiento {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.movimiento-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.movimiento-fecha {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+.texto-ingreso { color: #2e7d32; font-weight: bold; }
+.texto-egreso { color: #c62828; font-weight: bold; }
